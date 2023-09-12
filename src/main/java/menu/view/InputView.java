@@ -13,6 +13,12 @@ public class InputView {
         return name;
     }
 
+    public static String readMenus() {
+        String menus = Console.readLine();
+        validateBlank(menus);
+        return menus;
+    }
+
     private static void validateBlank(String name) {
         if (name.isBlank()) {
             throw new IllegalArgumentException("[ERROR] 빈 값은 입력될 수 없습니다.");
