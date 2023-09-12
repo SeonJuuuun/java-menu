@@ -14,9 +14,7 @@ public class InputView {
     }
 
     public static String readMenus() {
-        String menus = Console.readLine();
-        validateBlank(menus);
-        return menus;
+        return Console.readLine();
     }
 
     private static void validateBlank(String name) {
