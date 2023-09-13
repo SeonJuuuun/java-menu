@@ -1,5 +1,7 @@
 package menu.domain;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Coach {
@@ -8,10 +10,16 @@ public class Coach {
     private static final int COACH_NAME_MAX_SIZE = 4;
 
     private final String name;
+    private final List<Menu> canNotEat = new ArrayList<>();
+    private final List<Menu> canEat = new ArrayList<>();
 
     public Coach(String name) {
         validateCoachNameSize(name);
         this.name = name;
+    }
+
+    public void addCanNotEatMenu(List<Menu> menus) {
+        canNotEat.addAll(menus);
     }
 
     private void validateCoachNameSize(String name) {
@@ -35,5 +43,10 @@ public class Coach {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
