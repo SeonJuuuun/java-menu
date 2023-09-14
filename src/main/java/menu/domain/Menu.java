@@ -1,9 +1,6 @@
 package menu.domain;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 public class Menu {
@@ -25,7 +22,7 @@ public class Menu {
             .orElseThrow(() -> new IllegalArgumentException("음식이 존재하지 않습니다."));
     }
 
-    private static List<Menu> toMenu(List<String> menus){
+    private static List<Menu> toMenu(List<String> menus) {
         return menus.stream().map(Menu::of).collect(Collectors.toList());
     }
 
