@@ -19,7 +19,12 @@ public class Coach {
     }
 
     public void addCanNotEatMenu(List<Menu> menus) {
-        canNotEat.addAll(menus);
+        if (menus.size() < 2) {
+            canNotEat.addAll(menus);
+        }
+        if (menus.size() > 2) {
+            throw new IllegalArgumentException("각 코치는 최소 0개, 최대 2개의 메뉴만 입력할 수 있습니다.");
+        }
     }
 
     public void addCanEatMenu(Menu menu) {
