@@ -28,7 +28,8 @@ public enum Category {
         return value;
     }
 
-    public String getType() {
+    @Override
+    public String toString() {
         return type;
     }
 }
