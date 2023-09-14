@@ -21,7 +21,7 @@ public enum Category {
         return Arrays.stream(Category.values())
             .filter(category -> category.getValue() == number)
             .findFirst()
-            .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 값 입니다."));
+            .orElseThrow(() -> new IllegalArgumentException("[ERROR] 유효하지 않은 값 입니다."));
     }
 
     public int getValue() {

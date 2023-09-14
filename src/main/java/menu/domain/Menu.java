@@ -20,7 +20,7 @@ public class Menu {
         List<Menu> totalMenu = toMenu(menus);
         return totalMenu.stream()
             .filter(menu -> menu.checkMenuName(menuName)).findAny()
-            .orElseThrow(() -> new IllegalArgumentException("음식이 존재하지 않습니다."));
+            .orElseThrow(() -> new IllegalArgumentException("[ERROR] 음식이 존재하지 않습니다."));
     }
 
     private static List<Menu> toMenu(List<String> menus) {

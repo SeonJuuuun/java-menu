@@ -46,7 +46,7 @@ public class Coach {
 
     private void validateCanNotEatMenu(List<Menu> menus) {
         if (menus.size() > 2) {
-            throw new IllegalArgumentException("각 코치는 최소 0개, 최대 2개의 메뉴만 입력할 수 있습니다.");
+            throw new IllegalArgumentException("[ERROR] 각 코치는 최소 0개, 최대 2개의 메뉴만 입력할 수 있습니다.");
         }
     }
 
@@ -54,7 +54,7 @@ public class Coach {
         Set<Menu> menuSet = new HashSet<>();
         for (Menu menu : menus) {
             if (!menuSet.add(menu)) {
-                throw new IllegalArgumentException("각 메뉴는 중복될 수 없습니다.");
+                throw new IllegalArgumentException("[ERROR] 각 메뉴는 중복될 수 없습니다.");
             }
         }
     }
