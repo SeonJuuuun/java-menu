@@ -35,9 +35,13 @@ public class Coach {
     }
 
     private void validateCoachNameSize(String name) {
-        if(name.length() < COACH_NAME_MIN_SIZE || name.length() > COACH_NAME_MAX_SIZE){
+        if (name.length() < COACH_NAME_MIN_SIZE || name.length() > COACH_NAME_MAX_SIZE) {
             throw new IllegalArgumentException("[ERROR] 코치의 이름은 최소 2글자, 최대 4글자 입니다.");
         }
+    }
+
+    public List<Menu> getCanEat() {
+        return canEat;
     }
 
     @Override
