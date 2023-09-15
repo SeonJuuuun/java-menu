@@ -1,5 +1,7 @@
 package menu.view;
 
+import static menu.view.InputValidator.*;
+
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
@@ -9,17 +11,14 @@ public class InputView {
 
     public static String readCoachName() {
         String name = Console.readLine();
-        validateBlank(name);
+        validateCoachName(name);
         return name;
     }
 
     public static String readMenus() {
-        return Console.readLine();
-    }
-
-    private static void validateBlank(String name) {
-        if (name.isBlank()) {
-            throw new IllegalArgumentException("[ERROR] 빈 값은 입력될 수 없습니다.");
-        }
+        String menus = Console.readLine();
+        validateMenuNames(menus);
+        return menus;
     }
 }
+
