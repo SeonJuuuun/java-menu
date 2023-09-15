@@ -21,8 +21,6 @@ public class Coach {
     }
 
     public void addCanNotEatMenu(List<Menu> menus) {
-        validateCanNotEatMenu(menus);
-        validateDuplicateCanNotEatMenu(menus);
         canNotEat.addAll(menus);
     }
 
@@ -41,21 +39,6 @@ public class Coach {
     private void validateCoachNameSize(String name) {
         if (name.length() < COACH_NAME_MIN_SIZE || name.length() > COACH_NAME_MAX_SIZE) {
             throw new IllegalArgumentException("[ERROR] 코치의 이름은 최소 2글자, 최대 4글자 입니다.");
-        }
-    }
-
-    private void validateCanNotEatMenu(List<Menu> menus) {
-        if (menus.size() > 2) {
-            throw new IllegalArgumentException("[ERROR] 각 코치는 최소 0개, 최대 2개의 메뉴만 입력할 수 있습니다.");
-        }
-    }
-
-    private void validateDuplicateCanNotEatMenu(List<Menu> menus) {
-        Set<Menu> menuSet = new HashSet<>();
-        for (Menu menu : menus) {
-            if (!menuSet.add(menu)) {
-                throw new IllegalArgumentException("[ERROR] 각 메뉴는 중복될 수 없습니다.");
-            }
         }
     }
 
