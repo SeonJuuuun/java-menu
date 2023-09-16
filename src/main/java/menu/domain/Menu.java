@@ -27,7 +27,7 @@ public class Menu {
         return menus.stream().map(Menu::of).collect(Collectors.toList());
     }
 
-    public boolean checkMenuName(String menuName) {
+    private boolean checkMenuName(String menuName) {
         return this.menu.equals(menuName);
     }
 

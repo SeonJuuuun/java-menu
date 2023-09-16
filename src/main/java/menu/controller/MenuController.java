@@ -10,22 +10,18 @@ import menu.domain.Category;
 import menu.domain.Coach;
 import menu.domain.Date;
 import menu.domain.Menu;
-import menu.service.MenuService;
-import menu.service.RecommendService;
+import menu.domain.Recommender;
 import menu.view.InputView;
 import menu.view.OutputView;
 
 public class MenuController {
 
     private final Map<Category, String> menuMap;
-    private final MenuService menuService;
-    private final RecommendService recommendService;
+    private final Recommender recommender;
 
-    public MenuController(Map<Category, String> menuMap, MenuService menuService,
-        RecommendService recommendService) {
+    public MenuController(Map<Category, String> menuMap, Recommender recommender) {
         this.menuMap = menuMap;
-        this.menuService = menuService;
-        this.recommendService = recommendService;
+        this.recommender = recommender;
     }
 
     public void start() {
@@ -38,10 +34,10 @@ public class MenuController {
 
     public List<Category> recommendMenu(List<Coach> coaches) {
         List<Category> categories = new ArrayList<>();
-        for (String date : Date.getDayOfWeek()) {
-            Category category = recommendService.pickOneCategory(categories);
+        for (Date date : Date.values()) {
+            Category category = recommender.pickOneCategory(categories);
             for (Coach coach : coaches) {
-                Menu menu = menuService.recommendMenuForCoach(menuMap, category, coach);
+                Menu menu = recommender.recommendMenuForCoach(menuMap, category, coach);
                 coach.addCanEatMenu(menu);
             }
             categories.add(category);
