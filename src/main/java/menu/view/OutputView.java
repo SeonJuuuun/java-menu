@@ -40,7 +40,7 @@ public class OutputView {
     private static void printDivisions() {
         List<String> divisions = new ArrayList<>();
         divisions.add("구분");
-        divisions.addAll(Date.getDayOfWeek());
+        divisions.addAll(Date.getDateOfWeek());
         System.out.println(joinWords(divisions));
     }
 
